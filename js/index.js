@@ -67,19 +67,22 @@ let templates = [
     text: "Management Performance",
   },
 ];
-for (let i = 0; i < 90; i++) {
-  templates.forEach((el) => {
-    let div = document.createElement("div");
-    div.style.backgroundImage = `url(${el.url})`;
-    div.setAttribute("class", "templates-cards");
-    let h3 = document.createElement("h3");
-    h3.innerText = el.text;
-    div.append(h3);
+function disTemp(templates) {
+  document.querySelector(".templates > div:last-child").innerHTML = "";
+  for (let i = 0; i < 90; i++) {
+    templates.forEach((el) => {
+      let div = document.createElement("div");
+      div.style.backgroundImage = `url(${el.url})`;
+      div.setAttribute("class", "templates-cards");
+      let h3 = document.createElement("h3");
+      h3.innerText = el.text;
+      div.append(h3);
 
-    document.querySelector(".templates > div:last-child").append(div);
-  });
+      document.querySelector(".templates > div:last-child").append(div);
+    });
+  }
 }
-
+disTemp(templates);
 // ---------------------------------------- FILTER SURVEY TYPES --------------------------------------------------------
 
 let types = {
@@ -100,6 +103,7 @@ types.name.forEach((el, i) => {
   let div = document.createElement("div");
   let input = document.createElement("input");
   input.type = "checkbox";
+  input.value = el;
   let span = document.createElement("span");
   span.innerText = types.number[i];
   div.append(input, el);
@@ -117,3 +121,39 @@ setInterval(function () {
 setInterval(function () {
   document.querySelector(".banner h1").style.animation = "";
 }, 5000);
+
+// ------------------------------------- FILTER BY TYPE ------------------------------------
+
+let checks = {};
+let checkCount = 0;
+let checkboxes = document.querySelectorAll(".templates input[type='checkbox']");
+checkboxes.forEach((el) => {
+  el.addEventListener("click", (event) => {
+    let val = event.target.value;
+    if (event.target.checked == true) {
+      checks[val] = val;
+      checkCount++;
+    } else {
+      delete checks[val];
+      checkCount--;
+    }
+    if (checkCount == 0) {
+      disTemp(templates);
+    } else {
+      let filteredTemp = templates.filter((el) => {
+        let count = 0;
+        for (let k in checks) {
+          if (k == el.category) {
+            count = 1;
+          }
+        }
+        if (count == 1) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      disTemp(filteredTemp);
+    }
+  });
+});
