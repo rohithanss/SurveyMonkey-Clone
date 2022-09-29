@@ -1,6 +1,6 @@
 //  --------------------------------------- NAVBAR DROP DOWN MENU -------------------------------
-let dropMenu = document.querySelector("nav>div:last-child");
-let dropBtns = document.querySelectorAll(".navbar > div > h3");
+let dropMenu = document.querySelector(".drop-menu");
+let dropBtns = document.querySelectorAll(".navbarW > div > h3");
 let flag = false;
 dropBtns.forEach((el) => {
   el.addEventListener("click", (event) => {
@@ -17,6 +17,106 @@ dropBtns.forEach((el) => {
     }
   });
 });
+// ---------------------------------------------- BANNER ANIMATION --------------------------------------------------
+
+setInterval(function () {
+  document.querySelector(".banner h1").style.animation =
+    "typing 3.5s steps(40, end)";
+}, 2000);
+setInterval(function () {
+  document.querySelector(".banner h1").style.animation = "";
+}, 5000);
+
+// ------------------------------------------PLANS SLIDER -----------------------------------------
+document.querySelector(".btn1").addEventListener("click", () => {
+  document.querySelector(".cards").style.justifyContent = "start";
+});
+document.querySelector(".btn2").addEventListener("click", () => {
+  document.querySelector(".cards").style.justifyContent = "end";
+});
+
+// ---------------------------------------- FILTER SURVEY TYPES --------------------------------------------------------
+
+let checks = {};
+
+let typeArr = [
+  { typeName: "Customers", numbers: 90 },
+  { typeName: "Education", numbers: 90 },
+  { typeName: "Employees", numbers: 90 },
+  { typeName: "Events", numbers: 90 },
+  { typeName: "Healthcare", numbers: 90 },
+  { typeName: "Market Research", numbers: 90 },
+  { typeName: "Nonprofit", numbers: 90 },
+  { typeName: "Other", numbers: 180 },
+];
+
+function disType(typeName) {
+  document.querySelector(
+    ".templates > div:first-child>div:last-child"
+  ).innerHTML = "";
+  typeName.forEach((el) => {
+    let div = document.createElement("div");
+    let input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = el.typeName;
+    for (let k in checks) {
+      if (k == el.typeName) {
+        input.checked = true;
+        break;
+      }
+    }
+    input.addEventListener("click", filterChecked);
+    let span = document.createElement("span");
+    span.innerText = el.numbers;
+    div.append(input, el.typeName);
+    div.append(span);
+    document
+      .querySelector(".templates > div:first-child>div:last-child")
+      .append(div);
+  });
+}
+disType(typeArr);
+// ---------------------------------------- SEARCH SURVEY TYPES --------------------------------------------------------
+document
+  .querySelector(".search-bar>input")
+  .addEventListener("input", (event) => {
+    let val = event.target.value;
+    let searched = typeArr.filter((el) => {
+      let name = el.typeName.toLowerCase();
+      return name.includes(val, 0);
+    });
+    disType(searched);
+  });
+
+// ------------------------------------- FILTER BY TYPE And FILTER COUNT ------------------------------------
+
+function filterChecked(event) {
+  let val = event.target.value;
+  if (event.target.checked == true) {
+    checks[val] = val;
+  } else {
+    delete checks[val];
+  }
+  if (Object.keys(checks).length == 0) {
+    disTemp(templates);
+  } else {
+    let filteredTemp = templates.filter((el) => {
+      let count = 0;
+      for (let k in checks) {
+        if (k == el.category) {
+          count = 1;
+        }
+      }
+      if (count == 1) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    disTemp(filteredTemp);
+  }
+  console.log(checks, Object.keys(checks).length);
+}
 
 // ---------------------------------------- SURVEY TEMPLATES --------------------------------------------------------
 
@@ -68,6 +168,10 @@ let templates = [
   },
 ];
 function disTemp(templates) {
+  let countDis = document.querySelector(
+    ".templates > div:first-child > p > span"
+  );
+  let temps = 0;
   document.querySelector(".templates > div:last-child").innerHTML = "";
   for (let i = 0; i < 90; i++) {
     templates.forEach((el) => {
@@ -79,81 +183,65 @@ function disTemp(templates) {
       div.append(h3);
 
       document.querySelector(".templates > div:last-child").append(div);
+      temps++;
     });
   }
+  countDis.innerText = temps;
 }
 disTemp(templates);
-// ---------------------------------------- FILTER SURVEY TYPES --------------------------------------------------------
+// --------------------------------------------- Medium Screen --------------------------
 
-let types = {
-  name: [
-    "Customers",
-    "Education",
-    "Employees",
-    "Events",
-    "Healthcare",
-    "Market Research",
-    "Nonprofit",
-    "Other",
-  ],
-  number: [36, 24, 70, 11, 24, 58, 5, 46],
-};
-
-types.name.forEach((el, i) => {
-  let div = document.createElement("div");
-  let input = document.createElement("input");
-  input.type = "checkbox";
-  input.value = el;
-  let span = document.createElement("span");
-  span.innerText = types.number[i];
-  div.append(input, el);
-  // div.innerHTML = input + el;
-  div.append(span);
-  document.querySelector(".templates > div:first-child").append(div);
+//  --------HAMBURGER HOVER----------------
+let hamburger = document.querySelector(".hamburger");
+hamburger.addEventListener("mouseover", () => {
+  let divs = document.querySelectorAll(".hamburger > div");
+  divs.forEach((el) => {
+    el.classList.add("hamburger-over");
+  });
 });
 
-// ---------------------------------------------- BANNER ANIMATION --------------------------------------------------
+hamburger.addEventListener("mouseout", () => {
+  let divs = document.querySelectorAll(".hamburger > div");
+  divs.forEach((el) => {
+    el.classList.remove("hamburger-over");
+  });
+});
 
-setInterval(function () {
-  document.querySelector(".banner h1").style.animation =
-    "typing 3.5s steps(40, end)";
-}, 2000);
-setInterval(function () {
-  document.querySelector(".banner h1").style.animation = "";
-}, 5000);
+//  --------HAMBURGER CLICK ---------------
+hamburger.addEventListener("click", () => {
+  document.querySelector(".hamburger-menu").classList.toggle("show-menu");
+  document
+    .querySelector(".hamburger > div:nth-child(1)")
+    .classList.toggle("line1");
+  document
+    .querySelector(".hamburger > div:nth-child(2)")
+    .classList.toggle("line2");
+  document
+    .querySelector(".hamburger > div:nth-child(3)")
+    .classList.toggle("line3");
+});
 
-// ------------------------------------- FILTER BY TYPE ------------------------------------
+document
+  .querySelector(".hamburger-menu>button")
+  .addEventListener("click", () => {
+    window.location.href = "signup.html";
+  });
 
-let checks = {};
-let checkCount = 0;
-let checkboxes = document.querySelectorAll(".templates input[type='checkbox']");
-checkboxes.forEach((el) => {
+//  --------------------------------  HAMBURGER SUB MENU ---------------------------------------
+
+let menuBtns = document.querySelectorAll(".hamburger-menu>div>h3");
+let flag2 = false;
+menuBtns.forEach((el) => {
   el.addEventListener("click", (event) => {
-    let val = event.target.value;
-    if (event.target.checked == true) {
-      checks[val] = val;
-      checkCount++;
+    event.target.nextElementSibling.classList.toggle("view-submenu");
+
+    if (!flag2) {
+      event.path[0].children[0].setAttribute("class", "fa-solid fa-caret-up");
+      flag2 = true;
     } else {
-      delete checks[val];
-      checkCount--;
-    }
-    if (checkCount == 0) {
-      disTemp(templates);
-    } else {
-      let filteredTemp = templates.filter((el) => {
-        let count = 0;
-        for (let k in checks) {
-          if (k == el.category) {
-            count = 1;
-          }
-        }
-        if (count == 1) {
-          return true;
-        } else {
-          return false;
-        }
-      });
-      disTemp(filteredTemp);
+      console.log("af");
+      event.path[0].children[0].setAttribute("class", "fa-solid fa-caret-down");
+      flag2 = false;
     }
   });
 });
