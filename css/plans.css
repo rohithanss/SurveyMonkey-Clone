@@ -1,0 +1,755 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* ----------------------- Nav Bar ------------------------------ */
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+.bodyY {
+  overflow-y: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+}
+nav {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.navbarW {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 60px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #00bf6f;
+  box-sizing: border-box;
+}
+.navbarW > div ~ div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.hamburger {
+  display: none;
+}
+.navbarW > div:nth-child(3) {
+  gap: 35px;
+}
+.navbarW > div > * {
+  cursor: pointer;
+  color: white;
+}
+.navbarW > div > *:hover {
+  color: #9bfad2;
+}
+.navbarW > div::nth-child(2) > a {
+  height: 35px;
+}
+.navbarW > div:nth-child(3) > a,
+.navbarW > div:last-child > a {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+.navbarW > div:nth-child(3) > a:hover,
+.navbarW > div:last-child > a:hover {
+  color: #9bfad2;
+}
+.navbarW > div > a > img {
+  height: 100%;
+}
+
+.navbarW > div > h3 {
+  font-size: 13px;
+  position: relative;
+}
+.yo {
+  position: absolute;
+  bottom: -30px;
+  right: 50%;
+  font-size: 30px;
+  opacity: 0;
+}
+.yo:hover {
+  color: white;
+}
+.yo2 {
+  opacity: 1;
+}
+
+.navbarW button {
+  margin: 4px 0;
+  padding: 8px 15px;
+  height: auto;
+  border: none;
+  background-color: #00bf6f;
+  border: 1.5px solid white;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all 400ms;
+}
+.navbarW button:hover {
+  color: #00bf6f;
+  background-color: white;
+}
+nav > div:last-child {
+  position: fixed;
+  top: 45px;
+  left: 15%;
+  width: 70%;
+  margin: 5px auto;
+  height: 80vh;
+  display: none;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: #6b6d6f;
+  justify-content: space-between;
+  background-color: white;
+  z-index: 50;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+nav > div:last-child p {
+  font-weight: 500;
+}
+.section1 {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  padding: 30px 40px;
+  position: relative;
+}
+.section1 > div:first-child {
+  margin-bottom: 10px;
+}
+.section1 > div ~ div {
+  display: flex;
+  justify-content: space-between;
+}
+.section1 > div ~ div > div {
+  width: 48%;
+}
+.section1 > div ~ div > div {
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.section1 > div ~ div > div:hover {
+  background-color: #ececec;
+}
+.section1 > div ~ div > div > h3 {
+  margin-bottom: 10px;
+  color: #007faa;
+}
+.section1 > div ~ div > div > p {
+  line-height: 20px;
+}
+.section1 > p {
+  position: absolute;
+  bottom: 25px;
+  right: 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.section2 {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+}
+.section2 > div:first-child {
+  margin-bottom: 10px;
+}
+.section2 > div ~ div {
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.section2 > div ~ div h3 {
+  color: #007faa;
+}
+.section2 > div ~ div:hover {
+  background-color: #f7f7f7;
+}
+.section2 > div ~ div > div {
+  display: flex;
+  align-items: center;
+}
+.section2 > div ~ div:nth-child(3) > div > i {
+  margin-right: 5px;
+  color: #00bf6f;
+}
+.section2 > div ~ div:nth-child(3) > p {
+  padding: 0 16px;
+}
+.section2 > div ~ div:nth-child(4) > div i {
+  margin-right: 5px;
+  color: blue;
+}
+.section2 > div ~ div:nth-child(5) > div > i {
+  margin-right: 5px;
+  color: orange;
+}
+.section2 > div ~ div p {
+  line-height: 22px;
+  margin: 10px 0;
+  padding: 0 20px;
+}
+.section2 > p {
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* -------------------------------------------------- PLANS' CARDS --------------------------------------- */
+.plans {
+  margin: 50px auto;
+  width: 80%;
+}
+.plans > h1 {
+  text-align: center;
+  color: #4a4a3b;
+  font-size: 40px;
+}
+
+.plans > div:nth-child(2) {
+  text-align: center;
+}
+.plans > div:nth-child(2) > button {
+  color: #4a4a3b;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  margin: 10px;
+
+  cursor: pointer;
+}
+.plans > div:nth-child(2) > button:first-child {
+  border-bottom: 2px solid #00bf6f;
+  color: #00bf6f;
+}
+
+.plans > div:nth-child(3) {
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.plans > div:nth-child(3) > div {
+  min-width: 320px;
+  max-width: 320px;
+  text-align: center;
+}
+.card {
+  border: 0.5px solid rgb(171, 171, 171);
+  padding: 30px 20px;
+  color: #4a4a3b;
+  margin: 20px 0;
+  height: 1780px;
+  position: relative;
+  border-radius: 3px;
+}
+.card > h2 {
+  margin: 15px 0 0;
+  font-size: 30px;
+}
+.card > h2 > span {
+  font-size: 18px;
+  font-weight: 400;
+  color: #68666c;
+}
+.card > h2 + p {
+  margin: 15px 0 25px;
+  font-size: 11px;
+  color: #68666c;
+}
+.card > h3 + p {
+  margin: 15px 0 25px;
+  line-height: 22px;
+  color: #68666c;
+}
+.plans > div:nth-child(3) button {
+  width: 80%;
+  padding: 13px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.plans > div:nth-child(3) > div:nth-child(1) button {
+  background-color: #007faa;
+}
+.plans > div:nth-child(3) > div:nth-child(2) button {
+  background-color: #671e75;
+}
+.plans > div:nth-child(3) > div:nth-child(3) button {
+  background-color: #05467e;
+}
+.plans > div:nth-child(3) > div:first-child > div:hover {
+  border-color: #007faa;
+}
+.plans > div:nth-child(3) > div:nth-child(2) > div:hover {
+  border-color: #671e75;
+}
+.plans > div:nth-child(3) > div:nth-child(3) > div:hover {
+  border-color: #05467e;
+}
+.card > ul {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  font-size: 12px;
+  color: #68666c;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.card ul li {
+  list-style: none;
+  line-height: 22px;
+  padding: 5px 0;
+}
+.card ul li:hover {
+  background-color: #f7f7f7;
+}
+.liStyle::before {
+  content: "\2022";
+  color: #68666c;
+  font-weight: 500;
+  font-size: 25px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: -15px;
+}
+.card > span {
+  font-size: 12px;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+.plans > p {
+  font-size: 10px;
+  color: #68666c;
+  margin: 10px 0;
+}
+/* ---------------------------------------------------------- PAID FEATURES ----------------------------------- */
+.paidF {
+  width: 80%;
+  margin: auto;
+  color: #4a4a3b;
+}
+.paidF > h2 {
+  padding: 10px 0;
+  background-color: #fdefbf;
+  text-align: center;
+  font-size: 16px;
+  color: #4a4a3b;
+}
+.paidF > div {
+  display: flex;
+}
+.paidF > div > div:first-child {
+  width: 30%;
+  background-image: url(../img/plans.png);
+  background-size: 100%;
+  background-repeat: repeat-y;
+}
+.paidF img {
+  width: 100%;
+}
+.paidF > div > div:last-child {
+  width: 70%;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.paidF > div > div:last-child > p {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.paidF > div > div:last-child > button {
+  box-sizing: border-box;
+  margin: 10px 0 30px;
+  padding: 10px 20px;
+  height: auto;
+  border: none;
+  background-color: #f9be00;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+.paidF > div > div:last-child > button + p {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.paidF > div > div:last-child > div {
+  display: flex;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.paidF > div > div:last-child > div > div {
+  width: 50%;
+}
+.paidF > div > div:last-child > div > div > p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.paidF > div > div:last-child > div > div > p > i {
+  color: #00bf6f;
+  /* background-color: #00bf6f; */
+}
+.paidF > div > div:last-child > div > div:first-child > p:nth-child(5) > i {
+  color: gray;
+}
+.paidF > p {
+  text-align: center;
+  margin: 10px 0 20px;
+}
+.paidF > h3 {
+  color: #3597b7;
+  text-align: center;
+  margin-bottom: 50px;
+}
+/* --------------------------------------------------------------- ABOUT ----------------------------------- */
+.links {
+  color: #007faa;
+  cursor: pointer;
+}
+.links:hover {
+  text-decoration: underline;
+}
+.about {
+  width: 80%;
+  margin: 30px auto 50px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  letter-spacing: normal;
+}
+.about > h2 {
+  text-align: center;
+}
+.about > div {
+  margin: 30px 0;
+  display: flex;
+  column-gap: 30px;
+}
+.about > div > div {
+  width: 50%;
+}
+.about > div > div > h4,
+.about > div > div > p {
+  font-size: 15px;
+}
+.about > div > div > p > i {
+  color: #007faa;
+  font-weight: 600;
+  font-size: 15px;
+}
+.about h4 {
+  margin: 15px 0;
+  color: #4a4a3b;
+}
+.about > div > div > p {
+  margin: 10px 0;
+  line-height: 22px;
+  color: #68666c;
+}
+
+/* --------------------------------------------------------------- Footer ----------------------------------- */
+
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px 30px;
+  margin: 30px 0;
+}
+
+footer > div {
+  display: flex;
+  margin: 15px 0;
+}
+footer > div > h3 {
+  width: 10%;
+  font-size: 12px;
+  font-weight: 800;
+  color: #68666c;
+  cursor: pointer;
+}
+footer > div > h3:hover {
+  color: black;
+}
+footer > div > div {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  align-items: center;
+}
+footer > div p {
+  font-size: 12px;
+}
+footer > div > div > p {
+  color: #7a868c;
+}
+footer > div > div > p:hover {
+  cursor: pointer;
+  color: #007faa;
+  text-decoration: underline;
+}
+footer > div > div > i {
+  font-size: 3px;
+  margin: 1px 3px 0;
+}
+footer > div:last-child {
+  justify-content: space-between;
+}
+footer > div:last-child > div {
+  width: auto;
+  height: 50px;
+}
+footer > div > div > img {
+  height: 100%;
+}
+/* ================================================ HAMBURGER ===============================*/
+/* MEDIUM HAMBURGER */
+
+.hamburger {
+  height: 19px;
+  width: 17%;
+}
+.hamburger > div {
+  width: 20px;
+  border: 1.5px solid white;
+  border-radius: 2px;
+  background-color: white;
+}
+.hamburger .hamburger-over {
+  border-color: #9bfad2;
+  background-color: #9bfad2;
+  transition: all 1s;
+}
+.hamburger > div:nth-child(1) {
+  margin-bottom: 5px;
+  transition: transform 1s;
+}
+
+.hamburger > div:nth-child(3) {
+  margin-top: 5px;
+  transition: transform 1s;
+}
+.line1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.line2 {
+  display: none;
+}
+.line3 {
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.hamburger-menu {
+  width: 100%;
+  height: 90vh;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: -115%;
+  background-color: white;
+  transition: all 1s;
+  overflow-y: scroll;
+}
+.show-menu {
+  left: 1px;
+}
+
+.hamburger-menu > div > h3,
+.hamburger-menu > a > h3 {
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.hamburger-menu > a {
+  text-decoration: none;
+  color: black;
+}
+.hamburger-menu > div > h3:hover,
+.hamburger-menu > a:hover {
+  background-color: rgb(223, 221, 221);
+}
+
+@keyframes submenu {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 520px;
+  }
+}
+.hamburger-submenu {
+  /* padding: 15px; */
+  display: none;
+  height: 0px;
+  overflow: hidden;
+}
+.view-submenu {
+  display: block;
+  animation: submenu 1s;
+  height: 520px;
+}
+.hamburger-submenu > div {
+  padding: 15px 25px;
+  background-color: aliceblue;
+}
+.hamburger-submenu > div > h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #007faa;
+}
+.hamburger-submenu > div > p {
+  font-size: 13px;
+}
+.hamburger-submenu > div:hover {
+  background-color: rgb(223, 221, 221);
+  /* color: gray; */
+}
+/* =============================== RESPONSIVE FOR Above MEDIUM SCREEN ===============================--*/
+
+@media all and (max-width: 1200px) {
+  .navbarW {
+    /* justify-content: space-around; */
+    padding: 0 30px 0 20px;
+  }
+  .navbarW > div:nth-child(2) {
+    align-self: center;
+    align-content: center;
+  }
+  .navbarW > div:last-child {
+    width: 17%;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+  .navbarW > div:nth-child(3) {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/*  =============================== RESPONSIVE FOR MEDIUM SCREEN ===============================*/
+
+@media all and (max-width: 1024px) and (min-width: 756px) {
+  .hamburger-menu {
+    display: flex;
+  }
+  .navbarW > div:last-child {
+    width: auto;
+  }
+  /* .about div {
+    width: 80%;
+  } */
+  .plans > div:nth-child(3) {
+    flex-wrap: wrap;
+    row-gap: 50px;
+  }
+  @media screen and (max-width: 825px) {
+    .card {
+      height: auto;
+    }
+    .card > span {
+      position: relative;
+      bottom: -10px;
+      left: 45px;
+    }
+  }
+}
+/*  =============================== RESPONSIVE FOR SMALL SCREEN ===============================*/
+
+@media all and (max-width: 756px) and (min-width: 250px) {
+  .hamburger-menu {
+    display: flex;
+  }
+  .navbarW {
+    padding: 0;
+    justify-content: center;
+  }
+  .navbarW > div:nth-child(2) > a {
+    height: 25px;
+  }
+  .navbarW > div:first-child {
+    margin-left: 20px;
+    width: auto;
+  }
+  .navbarW > div:last-child {
+    width: auto;
+    margin-right: 20px;
+  }
+  .plans > h1 {
+    font-size: 25px;
+  }
+  .plans > div:nth-child(2) > button {
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+  }
+  .plans > div:nth-child(3) {
+    flex-wrap: wrap;
+    row-gap: 50px;
+  }
+  .card {
+    height: auto;
+  }
+  .card > span {
+    position: relative;
+    bottom: -10px;
+    left: 45px;
+  }
+  .navbarW {
+    justify-content: space-around;
+  }
+  .paidF > div > div:first-child {
+    display: none;
+  }
+  .paidF > div > div:last-child {
+    width: 100%;
+  }
+  .paidF > div > div:last-child > div {
+    flex-direction: column;
+  }
+  .paidF > div > div:last-child > div > div {
+    width: 100%;
+  }
+  .about > div {
+    flex-direction: column;
+  }
+  .about > div > div {
+    width: 100%;
+  }
+  footer > div {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  footer > div > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  footer > div > h3 {
+    width: auto;
+  }
+}

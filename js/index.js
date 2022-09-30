@@ -1,3 +1,8 @@
+// SIGN UP-button
+document.querySelector("nav button").addEventListener("click", () => {
+  window.location.href = "signup.html";
+});
+
 //  --------------------------------------- NAVBAR DROP DOWN MENU -------------------------------
 let dropMenu = document.querySelector(".drop-menu");
 let dropBtns = document.querySelectorAll(".navbarW > div > h3");
