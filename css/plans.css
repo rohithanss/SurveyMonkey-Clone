@@ -79,6 +79,9 @@ nav {
   font-size: 30px;
   opacity: 0;
 }
+.navbarW > div > *:hover .yo {
+  color: white;
+}
 .yo:hover {
   color: white;
 }
