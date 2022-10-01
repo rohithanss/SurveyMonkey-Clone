@@ -39,9 +39,13 @@ document.querySelector("button").addEventListener("click", () => {
     }
   });
   if (flag) {
+    document.querySelector(".alert").classList.remove("promtF");
+
     document.querySelector(".alert>p").innerText = "LOGIN SUCCESS";
     document.querySelector(".alert").classList.add("promtS");
   } else {
+    document.querySelector(".alert").classList.remove("promtS");
+
     document.querySelector(".alert>p").innerText = "INCORRECT PASSWORD";
 
     document.querySelector(".alert").classList.add("promtF");
